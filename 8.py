@@ -1,20 +1,16 @@
-def dez_zu_bin(dezimalzahl):
-    if dezimalzahl == 0:
-        return "0"
-    
-    binaerzahl = ""
-    while dezimalzahl > 0:
-        binaerzahl = str(dezimalzahl % 2) + binaerzahl
-        dezimalzahl //= 2
-    return binaerzahl
+def dez_zu_bin(n):
+    return bin(n)[2:]
 
-dezimalzahl = input("Bitte geben Sie eine Dezimalzahl ein: ")
-try:
-    dezimalzahl = int(dezimalzahl)
-    if dezimalzahl < 0:
-        print("Bitte geben Sie eine positive Zahl ein")
-    else:
-        binaerzahl = dez_zu_bin(dezimalzahl)
-        print(f"Die Binärdarstellung von {dezimalzahl} ist {binaerzahl}")
-except ValueError:
-    print("Das ist keine gültige Zahl")
+def main():
+    eingabe = input("Bitte geben Sie eine Dezimalzahl ein: ")
+    try:
+        zahl = int(eingabe)
+        if zahl < 0:
+            print("Bitte geben Sie eine positive Zahl ein.")
+        else:
+            binaer = dez_zu_bin(zahl)
+            print(f"Die Binärdarstellung von {zahl} ist {binaer}")
+    except ValueError:
+        print("Das ist keine gültige Zahl.")
+        
+main()

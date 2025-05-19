@@ -1,3 +1,2 @@
-text = input("Bitte geben Sie einen text ein: ")
-for i in range(len(text)-1, -1, -1):
-    print(text[i], end="")
+text = input("Bitte geben Sie einen Text ein: ")
+print(text[::-1])

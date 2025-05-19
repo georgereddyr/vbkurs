@@ -1,16 +1,8 @@
-zeichenkette = ["fddfh3", "ggl23h33h45t", "werff34fref", "sdfsdfffff3333", "asdkhfbasjhdf"]
+zeichenkette = ["fddfh3", "ggl23h33h45t", "werff34fref", "sdfsdfffff333", "asdkhfbasjhdf"]
 
-def laengste_zeichenkette(zeichenkette):
-    laengste = ""
-    laengste_zeichenkette = []
-    for zeichenkette in zeichenkette:
-        if len(zeichenkette) > len(laengste):
-            laengste = zeichenkette
-            laengste_zeichenkette = [zeichenkette]
-        elif len(zeichenkette) == len(laengste):
-            laengste_zeichenkette.append(zeichenkette)
-    return laengste_zeichenkette   
+def laengste_zeichenketten(liste):
+    max_laenge = max(len(s) for s in liste)
+    return [s for s in liste if len(s) == max_laenge]
 
-laengste = laengste_zeichenkette(zeichenkette)
-
-print(f"Die längste ist {laengste}")
+laengste = laengste_zeichenketten(zeichenkette)
+print(f"Die längste Zeichenkette: {laengste}")

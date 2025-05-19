@@ -1,32 +1,35 @@
-def caesar_verschluesselung(text, verschiebung):
-    verschluesselter_text = ""
-    for char in text:
+def caesar(text, verschiebung):
+    def verschluesseln(char):
         if char.isalpha():
-            offset = ord('A') if char.isupper() else ord('a')
-            verschluesselter_char = chr((ord(char) - offset + verschiebung) % 26 + offset)
-            verschluesselter_text += verschluesselter_char
-        else:
-            verschluesselter_text += char
-    return verschluesselter_text
+            basis = ord('A') if char.isupper() else ord('a')
+            return chr((ord(char) - basis + verschiebung) % 26 + basis)
+        return char
 
-text = input("Bitte geben Sie den zu verschlüsselnden Text ein: ")
-verschiebung = int(input("Bitte geben Sie die Verschiebung ein (1-25): "))
+    return ''.join(verschluesseln(char) for char in text)
 
-if verschiebung < 1 or verschiebung > 25:
-    print("Die Verschiebung muss zwischen 1 und 25 liegen.")
-else:
-    verschluesselter_text = caesar_verschluesselung(text, verschiebung)
-    print("Der verschlüsselte Text ist:", verschluesselter_text)
-    
-def caesar_entschluesselung(text, verschiebung):
-    return caesar_verschluesselung(text, -verschiebung)
+def eingabe_mit_validierung(prompt, validierungsfunktion):
+    while True:
+        try:
+            wert = int(input(prompt))
+            if validierungsfunktion(wert):
+                return wert
+            print("Ungültiger Wert.")
+        except ValueError:
+            print("Bitte eine gültige Zahl eingeben.")
 
-verschluesselter_text = input("Bitte geben Sie den zu entschlüsselnden Text ein: ")
-verschiebung = int(input("Bitte geben Sie die Verschiebung ein (1-25): "))
+def hauptmenue():
+    modus = input("Möchten Sie verschlüsseln (v) oder entschlüsseln (e)? ").strip().lower()
+    if modus not in {'v', 'e'}:
+        print("Ungültige Auswahl")
+        return
 
-if verschiebung < 1 or verschiebung > 25:
-    print("Die Verschiebung muss zwischen 1 und 25 liegen.")
-else:
-    entschluesselter_text = caesar_entschluesselung(verschluesselter_text, verschiebung)
-    print("Der entschlüsselte Text ist:", entschluesselter_text)
-    
+    text = input("Bitte geben Sie den Text ein: ")
+    verschiebung = eingabe_mit_validierung("Bitte geben Sie die Verschiebung ein (1-25): ", lambda x: 1 <= x <= 25)
+
+    if modus == 'e':
+        verschiebung = -verschiebung
+
+    ergebnis = caesar(text, verschiebung)
+    print("Ergebnis:", ergebnis)
+
+    hauptmenue()
