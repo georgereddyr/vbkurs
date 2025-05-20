@@ -1,7 +1,7 @@
 def dez_zu_bin(n):
     return bin(n)[2:]
 
-def main():
+def f():
     eingabe = input("Bitte geben Sie eine Dezimalzahl ein: ")
     try:
         zahl = int(eingabe)
@@ -13,4 +13,4 @@ def main():
     except ValueError:
         print("Das ist keine gültige Zahl.")
         
-main()
+f()

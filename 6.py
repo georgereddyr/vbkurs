@@ -1,4 +1,4 @@
-def summen_berechnen(eingabe):
+def summe(eingabe):
     zahlen = eingabe.split()
     summe = summe_gerade = summe_ungerade = 0
 
@@ -16,8 +16,6 @@ def summen_berechnen(eingabe):
     return summe, summe_gerade, summe_ungerade
 
 eingabe = input("Bitte geben Sie eine Liste von Zahlen ein: ")
-gesamt, gerade, ungerade = summen_berechnen(eingabe)
+gesamt, gerade, ungerade = summe(eingabe)
 
-print(f"Gesamtsumme: {gesamt}")
-print(f"Summe gerader Zahlen: {gerade}")
-print(f"Summe ungerader Zahlen: {ungerade}")
+print(f"Gesamtsumme: {gesamt}\n Summe gerader Zahlen: {gerade} \n Summe ungerader Zahlen: {ungerade}" )
