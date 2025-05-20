@@ -20,31 +20,35 @@ Funktionen Aussuchen kann. Die Funktionen sind:
     4. Alle Daten laden/speichern ... ? Menüfunktion oder integriert in die einzelnen Bereiche?
 '''
 
+import datetime
+
+alle_konten = []
 kunde = {
     "Vorname": "",
     "Name": "",
     "Adresse": "",
     "Geburtsdatum": "",
-    "Einkommen": 0,
+    "Beruf": "",
+    "Monatseinkommen": 0,
     "Vermögen": {
         "Vermögentitel": ""
     }
-    
 }
 
-konto = {
-    "konto_numer": 0,
-    "besitzer": kunde,
-    "Jahresabschluss": "",
+def konto_anlegen(kunde, kontoart, konto_numer, startguthaben=0, erstellungsdatum=None):
+    if erstellungsdatum is None:
+        erstellungsdatum = datetime.datetime.now().strftime("%d-%m-%Y")
     
-}
-
-
-def konto_anlegen(kunde, kontoart, konto_numer):
+    konto = {
+        "konto_nummer": konto_numer,
+        "besitzer": kunde,
+        "kontoart": kontoart,
+        "bewegungen": [{"datum": erstellungsdatum, "betrag": startguthaben, "info": "Eröffnung"}],
+        "erstellt_am": erstellungsdatum
+    }
+    return konto
     
-    print()
     
-    
-def buchung(konto_numer):
+def buchung():
     
     print()
