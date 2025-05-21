@@ -1,8 +1,8 @@
 print("Spiel: ZAHLEN RATEN")
 
 def zahlen_raten():
-    print("Denk dir eine Zahl zwischen 1 und 1024 und gib sie ein.")
-    print("Dann versuchst du, sie zu erraten!")
+    print("Denk dir eine Zahl zwischen 1 und 1024 und gib sie ein.\n"
+          "Dann versuchst du, sie zu erraten!")
 
     gedachte_zahl = None
     while gedachte_zahl is None:

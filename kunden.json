@@ -1,0 +1,28 @@
+[
+    {
+        "Vorname": "yehor",
+        "Name": "riabukha",
+        "Adresse": "asodnfklj str 2",
+        "Geburtsdatum": "11 11 1222",
+        "Beruf": "adsfsdf",
+        "Einkommen": 12345.0,
+        "Vermögen": {
+            "fdsf": 444.0,
+            "fjwi": 33.0
+        }
+    },
+    [
+        {
+            "Vorname": "vorname",
+            "Name": "name",
+            "Adresse": "adr",
+            "Geburtsdatum": "11 22 1333",
+            "Beruf": "beruf",
+            "Einkommen": 12345.0,
+            "Vermögen": {
+                "verm": 1234.0,
+                "verm2": 432.0
+            }
+        }
+    ]
+]
